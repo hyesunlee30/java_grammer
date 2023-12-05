@@ -63,19 +63,28 @@ public class C04Operater {
 //
 //        System.out.println(ch1 == ch2); // 같다
 //        System.out.println(ch1 != ch2); // 같지 않다.
+//
+//        // 논리연산자 참, 거짓 &&, ||, !
+//        int num1 = 10; int num2 = 20;
+//        boolean result1, result2;
+//
+//        result1 = (num1 > 5) && (num1 < 20); // 둘 다 만족해서 true
+//        result2 = (num2 < 10) || (num2 < 30); //둘 중에 하나만이라도 만족해서 true
+//
+//        System.out.println(result1); // ture
+//        System.out.println(result2); // ture
+//        System.out.println(!result2); // ture의 반대 false
 
-        // 논리연산자 참, 거짓 &&, ||, !
-        int num1 = 10; int num2 = 20;
-        boolean result1, result2;
+        // 비트연산자
+        // 비트단위로 논리 연산을 할 때 사용하는 연산자
+        // & 대응되는 비트가 모두 1이면 1을 반환함
 
-        result1 = num1 > 5 && num1 < 20; // 둘 다 만족해서 true
-        result2 = num2 < 10 || num2 < 30; //둘 중에 하나만이라도 만족해서 true
+        System.out.println(2 & 1);
+        int n1 = 10; int n2 = 20;
 
-        System.out.println(result1); // ture
-        System.out.println(result2); // ture
-        System.out.println(!result2); // ture의 반대 false
-
-
+        if(n1>20 && n2>30) {
+            System.out.println("참입니다");
+        }
 
 
 
