@@ -29,22 +29,50 @@ public class C04IfStatements {
 //        } else {
 //            System.out.println("비민번호가 틀렸습니다.");
 //        }
+//
+//        //묵시적 타입변환 조건문일 경우 ascii 코드로 묵시적으로 변환됨.
+//        // a : 97
+//        // A: 65
+//        // B: 66
+//
+//        // 사용자가 알파벳을 아무거나 입력받고 그 알파벳이 대문자인지 소문자인지 판별
+//
+//        System.out.println("대문자, 소문자로 비교할 알파벳을 입력하세요.");
+//        char input = myScan.nextLine().charAt(0);
+//
+//        if (input >= 'a' && input <= 'z') {
+//            System.out.println("소문자");
+//        } else if (input >= 'A' && input <= 'Z') {
+//            System.out.println("대문자");
+//        }
 
-        //묵시적 타입변환 조건문일 경우 ascii 코드로 묵시적으로 변환됨.
-        // a : 97
-        // A: 65
-        // B: 66
+        // 버스카드 예제
+        // 내 돈이 얼마 있는지를 입력
+        // 버스요금 1500 이다.
+        // 더 적으면 탑승 불가
+        // 많으면 정상처리
+        // 도난여부 boolean
 
-        // 사용자가 알파벳을 아무거나 입력받고 그 알파벳이 대문자인지 소문자인지 판별
+        System.out.println("버스카드를 찍어주세요");
 
-        System.out.println("대문자, 소문자로 비교할 알파벳을 입력하세요.");
-        char input = myScan.nextLine().charAt(0);
+        Scanner mySc = new Scanner(System.in);
 
-        if (input < 97) {
-            System.out.println("대문자");
+        boolean isStolenCard = true;
+        int cardBalance = mySc.nextInt();
+        int busfare = 1500;
+
+        if (cardBalance >= busfare && !isStolenCard) { // 탑승 가능 조건
+            System.out.println("정상처리 되었습니다.");
         } else {
-            System.out.println("소문자");
+            System.out.println("탑승이 불가합니다.");
         }
+
+        if (cardBalance < busfare || isStolenCard) { // 탑승 불가 조건
+            System.out.println("탑승이 불가합니다.");
+        } else {
+            System.out.println("정상처리 되었습니다.");
+        }
+
 
 
     }
