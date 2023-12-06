@@ -45,35 +45,40 @@ public class C04IfStatements {
 //        } else if (input >= 'A' && input <= 'Z') {
 //            System.out.println("대문자");
 //        }
+//
+//        // 버스카드 예제
+//        // 내 돈이 얼마 있는지를 입력
+//        // 버스요금 1500 이다.
+//        // 더 적으면 탑승 불가
+//        // 많으면 정상처리
+//        // 도난여부 boolean
+//
+//        System.out.println("버스카드를 찍어주세요");
+//
+//        Scanner mySc = new Scanner(System.in);
+//
+//        boolean isStolenCard = true;
+//        int cardBalance = mySc.nextInt();
+//        int busfare = 1500;
+//
+//        if (cardBalance >= busfare && !isStolenCard) { // 탑승 가능 조건
+//            System.out.println("정상처리 되었습니다.");
+//        } else {
+//            System.out.println("탑승이 불가합니다.");
+//        }
+//
+//        if (cardBalance < busfare || isStolenCard) { // 탑승 불가 조건
+//            System.out.println("탑승이 불가합니다.");
+//        } else {
+//            System.out.println("정상처리 되었습니다.");
+//        }
 
-        // 버스카드 예제
-        // 내 돈이 얼마 있는지를 입력
-        // 버스요금 1500 이다.
-        // 더 적으면 탑승 불가
-        // 많으면 정상처리
-        // 도난여부 boolean
-
-        System.out.println("버스카드를 찍어주세요");
-
-        Scanner mySc = new Scanner(System.in);
-
-        boolean isStolenCard = true;
-        int cardBalance = mySc.nextInt();
-        int busfare = 1500;
-
-        if (cardBalance >= busfare && !isStolenCard) { // 탑승 가능 조건
-            System.out.println("정상처리 되었습니다.");
-        } else {
-            System.out.println("탑승이 불가합니다.");
-        }
-
-        if (cardBalance < busfare || isStolenCard) { // 탑승 불가 조건
-            System.out.println("탑승이 불가합니다.");
-        } else {
-            System.out.println("정상처리 되었습니다.");
-        }
-
-
-
+        // 삼항 연산자
+        String answer = "0234";
+        System.out.println("비밀번호를 입력해주세요");
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        String result = input.equals(answer) ? "참":"거짓";
+        System.out.println(result);
     }
 }
