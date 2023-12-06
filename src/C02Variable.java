@@ -2,6 +2,8 @@ import java.math.BigDecimal;
 
 public class C02Variable {
     public static void main(String[] args) {
+
+        // 기본 자료형(스텍),  참조 자료형 => new 해당클래스명(힙메모리) -> 객체
         // overflow, underflow
         //byte 127, -127
 //        byte num1 = 127;
@@ -68,6 +70,7 @@ public class C02Variable {
 //        System.out.println(my_char);
 //
 //        //ture 1, false 0
+//        boolean 선언만 하고 초기화 하지 않을 시에 기본값음 0 false 이다.
 //        boolean isA = true;
 //        if (isA) {
 //            System.out.println("조건식은 참입니다");
@@ -91,6 +94,9 @@ public class C02Variable {
 //        char ch1 = 'a';
 //        int ch1Num = ch1; // 아스키코드에 있는 a를 담으려고 한다고 생각하고 타입 변경함.
 //        System.out.println(ch1Num);
+//
+//        //알파벳 비교를 위한 묵시적 타입변환이 일어난다
+//        System.out.println('A'>'a'); // ascii 코드로 비교
 //
 //
 //        // 명시적 타입변환
