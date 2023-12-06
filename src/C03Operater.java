@@ -1,4 +1,4 @@
-public class C04Operater {
+public class C03Operater {
     public static void main(String[] args) {
 //        //연산자
 //        //자바에서는 여러 종류의 연산을 수행하기 위한 다양한 연산자를 제공
@@ -105,10 +105,11 @@ public class C04Operater {
 //        //XOR과 AND를 조합해 덧셈 뺄쌤으로 활용
 //        //시프트 연산자를 활용해 곱셈, 나눗셈으로 활용
 //        //이런식으로 컴퓨터 연산에서 비트연산자가 활용되는 것정도만 숙지
-        
+
+
         int a = 13; //00001101
         int b = 9;  //00001001
-        
+
         while (b !=0 ) {
             int sameIndex = a & b; // and 연산으로 구한 carry 두 개가 같은 값이 있는 걸 찾음
             a = a ^ b; // xor 연산으로 구한 비트값 a에 할당
@@ -121,8 +122,6 @@ public class C04Operater {
         //a : 00100 // XOR 자릿수가 일치하지 않은 값은 그냥 더하면 됩니다.
         //b : 10010 // 한 자릿수 땡긴값
         //a : 10110 // 더하기의 결과
-
-
 
     }
 }
