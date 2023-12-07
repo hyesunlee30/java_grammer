@@ -9,8 +9,8 @@ public class C04IfStatements {
 //        // 일치하지 않으면 비밀번호가 틀렸습니다.
 //
 //        System.out.println("출입을 위한 비밀번호를 입력하세요.");
-        Scanner myScan = new Scanner(System.in);
-
+//        Scanner myScan = new Scanner(System.in);
+//
 //        int password = 1234;
 //        int inputPass = myScan.nextInt();
 //
@@ -141,11 +141,5 @@ public class C04IfStatements {
 //                System.out.println("잘못 누르셨습니다.");
 //                break;
 //        }
-
-
-
-
-
-
     }
 }

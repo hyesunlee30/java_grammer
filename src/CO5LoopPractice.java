@@ -17,7 +17,7 @@ public class CO5LoopPractice {
 //        int result = 0;
 //        while(true) {
 //            int temp = num % 10; // 떼어내기
-//            result = (result *10) + temp;
+//            result = (result *10) + temp; // 한칸씩 올리기
 //            num /= 10; // 뗴어내고 남은 값
 //            if(num == 0) {
 //                break;
@@ -43,7 +43,7 @@ public class CO5LoopPractice {
 //
 //        //배열과 Enhanced for문
 //
-        int[] myArr ={1,5,7,9,10};
+//        int[] myArr ={1,5,7,9,10};
 //
 //        for (int i =0; i<5; i++) {
 //            System.out.println(myArr[i]);
@@ -85,14 +85,77 @@ public class CO5LoopPractice {
 //            }
 //            System.out.println("----------");
 //        }
+//
+//        //2중 for문을 통해 배열접근
+//        int[][] arr = {{1,2,3,4},{5,6,7,8}};
+//        for (int i = 0; i < arr.length; i++) {
+//            for (int j = 0; j < arr[0].length; j++) {
+//                System.out.println(arr[i][j]);
+//            }
+//        }
+//
+//        int[] arr = {1,2,3,4};
+//        int sum = 0;
+//        for (int i = 0; i < arr.length; i++) {
+//            if(i%2 == 0) {
+//                sum = sum + arr[i];
+//            }
+//        }
+//        System.out.println(sum);
+//
+//        // 라벨문
+//        // 이중 포문에서 안쪽 포문에서 바깥에 있는 포문을 종료
+//        loop1:
+//        for(int i =0; i<5; i++) {
+//            loop2:
+//            for(int j = 0; j <5; j++) {
+//                System.out.println("hello world i "+i+" j "+ j);
+//                if(j==2) {
+////                    break;
+//                    break loop1;
+//                }
+//            }
+//        }
+//
+//        //target이 matrix에 i, j 번째에 있는지 출력
+//        //라벨문 활용1
+//        int[][] matrix = {{1,2,3,4}, {5,6,7}, {8,9},{10,11,12,13,14}};
+//        int target = 14;
+//        l1:
+//        for (int i = 0; i < matrix.length; i++) {
+//            l2:
+//            for(int j =0; j < matrix[i].length; j++) {
+//                if(matrix[i][j] == target) {
+//                    System.out.println("타겟은 "+i+", "+j+" 번째에 있다");
+//                    break l1;
+//                }
+//            }
+//        }
 
-        //2중 for문을 통해 배열접근
-        int[][] arr = {{1,2,3,4},{5,6,7,8}};
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[0].length; j++) {
-                System.out.println(arr[i][j]);
+        //라벨문 활용2
+        //1~20 숫자가 있을 때 1약수 1, 2약수 1,2, 3약수 1,3, 6약수 1,2,3,6
+        // 이 중에 약수가 5개 이상인 숫자 중에 가장 작은 값을 구하시요.
+        // 약수는 a / b 를 나눴을때 0이 나오면 b는 a의 약수다
+
+
+        int min = 0;
+        l1:
+        for (int i = 1; i <21; i++) {
+            int a = 0;
+            l2:
+            for (int j = 1; j<=i; j++) {
+                if(i%j == 0) { // 약수를 구하고
+                    a++;      //약수가 몇 개인지 세고
+                    if(a > 5) { // 5개 이상일때
+                        min = i; // 약수의 작은값이 아니라, 숫자 중에 가장 작은 값을 구하라고 한 것이라서.
+                        break l1;
+                    }
+                }
             }
         }
+
+        System.out.println(min);
+
 
     }
 }
