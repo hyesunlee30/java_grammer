@@ -1,6 +1,4 @@
-import java.util.Arrays;
-
-public class CO5LoopPractice {
+public class C05LoopPractice {
     public static void main(String[] args) {
 //        //짝수의 합 1부터 20까지 계산하기
 //        int sum = 0;
@@ -131,30 +129,47 @@ public class CO5LoopPractice {
 //                }
 //            }
 //        }
-
-        //라벨문 활용2
-        //1~20 숫자가 있을 때 1약수 1, 2약수 1,2, 3약수 1,3, 6약수 1,2,3,6
-        // 이 중에 약수가 5개 이상인 숫자 중에 가장 작은 값을 구하시요.
-        // 약수는 a / b 를 나눴을때 0이 나오면 b는 a의 약수다
-
-
-        int min = 0;
-        l1:
-        for (int i = 1; i <21; i++) {
-            int a = 0;
-            l2:
-            for (int j = 1; j<=i; j++) {
-                if(i%j == 0) { // 약수를 구하고
-                    a++;      //약수가 몇 개인지 세고
-                    if(a > 5) { // 5개 이상일때
-                        min = i; // 약수의 작은값이 아니라, 숫자 중에 가장 작은 값을 구하라고 한 것이라서.
-                        break l1;
-                    }
-                }
-            }
-        }
-
-        System.out.println(min);
+//
+//        //라벨문 활용2
+//        //1~20 숫자가 있을 때 1약수 1, 2약수 1,2, 3약수 1,3, 6약수 1,2,3,6
+//        // 이 중에 약수가 5개 이상인 숫자 중에 가장 작은 값을 구하시요.
+//        // 약수는 a / b 를 나눴을때 0이 나오면 b는 a의 약수다
+//
+//
+//        int min = 0;
+//        l1:
+//        for (int i = 1; i <21; i++) {
+//            int a = 0;
+//            l2:
+//            for (int j = 1; j<=i; j++) {
+//                if(i%j == 0) { // 약수를 구하고
+//                    a++;      //약수가 몇 개인지 세고
+//                    if(a > 5) { // 5개 이상일때
+//                        min = i; // 약수의 작은값이 아니라, 숫자 중에 가장 작은 값을 구하라고 한 것이라서.
+//                        break l1;
+//                    }
+//                }
+//            }
+//        }
+//        System.out.println(min);
+//
+//        int answer = 0;
+//        for (int i = 1; i < 21; i++) {
+//            int count = 0;
+//            for (int j =1; j < i; j++) {
+//                if (i % j == 0) {
+//                    count++;
+//                    answer = i;
+//                }
+//                if(count == 5) {
+//                    break;
+//                }
+//            }
+//            if (count >= 5) {
+//                System.out.println(answer);
+//                break;
+//            }
+//        }
 
 
     }
