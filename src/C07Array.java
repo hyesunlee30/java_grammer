@@ -121,17 +121,150 @@ public class C07Array {
 //            arr[arr.length-1-i] = temp;
 //        }
 //        System.out.println(Arrays.toString(arr));
+//
+//        //stream Api lambda를 활용한 내림차순 정렬
+//        int[] arr = {5,1,2,7,3,1,2};
+//        int[] new_arr = Arrays.stream(arr) //stream 객체 생성, 복사를 했다
+//                .boxed() // int를 integer로 박싱
+//                .sorted(Comparator.reverseOrder()) // 내림차순 정렬
+//                .mapToInt(a -> a) /// int로 변환
+//                .toArray();
+//
+//        System.out.println(Arrays.toString(new_arr));
+//
+//        //선택정렬
+//        int[] a = {30,22,20,25,12};
+//        // 마지막 두개는 비교 못 함 a.length -1;
+//        for (int i = 0; i < a.length-1; i++) {
+//            int min = a[i];
+//            for (int j = i+1; j < a.length; j++ ) {
+//                if (min > a[j]) {
+//                    min = a[j];
+//                    int temp = a[i];
+//                    a[i] = a[j];
+//                    a[j] = temp;
+//                }
+//            }
+//        }
+//        System.out.println(Arrays.toString(a));
+//        //선택정렬
+//        // 마지막 두개는 비교 못 함 a.length -1;
+//        for (int i = 0; i < a.length-1; i++) {
+//            int max = a[i];
+//            for (int j = i+1; j < a.length; j++ ) {
+//                if (max < a[j]) {
+//                    max = a[j];
+//                    int temp = a[i];
+//                    a[i] = a[j];
+//                    a[j] = temp;
+//                }
+//            }
+//        }
+//
+//        System.out.println(Arrays.toString(a));
+//        //시간복잡도
+//        //빅오 O(n);
+//        //이중for문은 O(n^2) 느리다
+//        //n
+//        //logn 승수값이 logn의 결과값 1024는 2^10 n = 10
+//        // 기하급수적으로 -> 제곱으로 간다
+//        // 산술급수적으로 -> 더하기로 간다ㄴ
+//        // 문제는 맞았다 -> 효울성 X 시간 초과
+//        //메모리복잡도
+//
+//        //숫자 조합의 합 : 각기 다른 숫자의 배열이 있을때 만들어 질 수 있는 2개의 조합의 합을 출력하라.
+//        //10-20, 10- 30, 10 - 40, 20-10// 안 해도 된다.
+//        int[] numbers_combination = new int[numbers.length*numbers.length];
+//        int combination_count = 0;
+//        for (int i = 0; i<numbers.length-1; i++) {
+//            for (int j = i+1; j <numbers.length; j++) {
+//                numbers_combination[combination_count] = numbers[i]+numbers[j];
+//                combination_count++;
+//            }
+//        }
+//        int[] temp = Arrays.copyOfRange(numbers_combination, 0, combination_count);
+//        int[] temp2 = new int[temp.length];
+//        Arrays.sort(temp);
+//        int cnt = 0;
+//        for (int i = 0; i < temp.length-1; i++) {
+//            if(temp[i] != temp[i+1]) {
+//                temp2[cnt] = temp[i];
+//                cnt++;
+//            }
+//        }
+//        temp2[cnt++] = temp[temp2.length-1]; //index를 넣어주는 거라서 -1를 해줘야 함
+//
+//        return Arrays.copyOfRange(temp2, 0, cnt);
+//
+//        //중복제거하기
+//        //int[] temp = {10,10,40,40,5,7};
+//        // 정렬이 선행되어야 가능한 로직이다.
+//        Arrays.sort(temp);
+//        //int[] new_temp = Arrays.copyOfRange(temp, 0, 3);
+//        //배열은 길이가 정해져 있습니다. 미리 선언해야한다.
+//        int[] temp2 = new int[temp.length-1];
+//        int cnt = 0;
+//        for (int i = 0; i < temp.length-1; i++) {
+//            if(temp[i] != temp[i+1]) {
+//                temp2[cnt] = temp[i];
+//                cnt++;
+//            }
+//        }
+//        temp2[cnt++] = temp[temp2.length];
+//        int[] answer = Arrays.copyOfRange(temp2, 0, cnt);
+//        System.out.println(Arrays.toString(answer));
+//
+//        //버블정렬
+//        // i는 전체 반복횟수를 결정
+//        // j는 i가 증가할수록 마지막자리가 i만큼 줄어듬
+//        // i보다 i+1 이 더 작으면 자리체인지
+//        // 큰 걸 오른쪽으로 밀어낸다.
+//        // arr[j] 와 arr[j+1]을 비교하기 떄문에 j는 arr.length-i-1까지다.
+//        int [] arr = {5,1,4,3,2};
+//        for (int i = 0; i < arr.length; i++) {
+//            for (int j = 0; j<arr.length-i-1; j++) { // 값을 하나 더 빼줘야하는데  j+1 하면서 보기 때문에 j 값에서 -1 g해야힘
+//                if (arr[j] > arr[j+1]) {
+//                    int temp = arr[j];
+//                    arr[j] = arr[j+1];
+//                    arr[j+1] = temp;
+//                }
+//            }
+//        }
+//        System.out.println(Arrays.toString(arr));
+//
+//        // 효율화 밖에 for문에  arr.length-1
+//        // 변경이 일어났는지 체크해서
+//        int [] arr1 = {5,1,2,3,4}; // 정렬이 완료 되어도 계속 for문이 돈다.
+//
+//        for (int i = 0; i < arr1.length-1; i++) {
+//            boolean check = false; // 초기화가 되어야 하는데, 계속 true인 상태로 이어지기 때문에
+//            for (int j = 0; j<arr1.length-i-1; j++) { // 값을 하나 더 빼줘야하는데  j+1 하면서 보기 때문에 j 값에서 -1 g해야힘
+//                if (arr1[j] > arr1[j+1]) {
+//                    int temp = arr1[j];
+//                    arr1[j] = arr1[j+1];
+//                    arr1[j+1] = temp;
+//                } else {
+//                    check = true;
+//                }
+//            }
+//            if(check) {
+//                break;
+//            }
+//        }
+//
+//        System.out.println(Arrays.toString(arr1));
 
-        //stream Api lambda를 활용한 내림차순 정렬
-        int[] arr = {5,1,2,7,3,1,2};
-        int[] new_arr = Arrays.stream(arr) //stream 객체 생성, 복사를 했다
-                .boxed() // int를 integer로 박싱
-                .sorted(Comparator.reverseOrder()) // 내림차순 정렬
-                .mapToInt(a -> a) /// int로 변환
-                .toArray();
 
-        System.out.println(Arrays.toString(new_arr));
+        //배열의 검색
+        int[] arr = {5,3,1,8,7};
+        int answer = 0;
+        for (int i =0; i < arr.length; i++) {
+            if(arr[i] == 1) {
+                answer = i;
+                break;
+            }
+        }
 
+        System.out.println(answer);
     }
-
 }
