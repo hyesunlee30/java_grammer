@@ -1,5 +1,5 @@
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class C07Array {
     public static void main(String[] args) {
@@ -253,18 +253,109 @@ public class C07Array {
 //        }
 //
 //        System.out.println(Arrays.toString(arr1));
+//
+//
+//        //배열의 검색 O(n) 복잡도
+//        int[] arr = {5,3,1,8,7};
+//        int answer = 0;
+//        for (int i =0; i < arr.length; i++) {
+//            if(arr[i] == 1) {
+//                answer = i;
+//                break;
+//            }
+//        }
+//
+//        System.out.println(answer);
+//
+//        //이진검색(Binary Search)
+//        // 사전에 오름차순 정렬이 되어 있어야 이진검색 가능
+//        int [] arr = {1,3,6,8,9,11};
+//        //정렬되어 있어야 한다
+//        //이진검색 알고리즘
+//        // 가운데 값과 찾고자 하는 값을 비교.
+//        // 가운데 값보다 찾고 싶은 값이 크면 오른쪽에 있고
+//        // 반대는 왼쪽에
+//        // 찾아지는 대로 나옴
+//        int answer = Arrays.binarySearch(arr,8);
+//        System.out.println(answer);
+//
+//        //배열간 비교 : equals
+//        int[] arr1 = {10,20,30};
+//        int[] arr2 = {20,30,10};
+//        int[] arr3 = {10,20,30};
+//        //순서까지 동일해야 true, == 쓰면 주소가 다르기 때문에 다르다고 나온다.
+//        System.out.println(Arrays.equals(arr1,arr3));
+//
+//        //배열 복사 : copyOf(배열, end), copyOfRange(배열, startIndex, endIndex)
+//        int[] arr = {10,20,30,40,50};
+//        int[] arr1 = Arrays.copyOf(arr,10);
+//        int[] arr2 = Arrays.copyOfRange(arr, 1,4);
+//        System.out.println(Arrays.toString(arr1));
+//        System.out.println(Arrays.toString(arr2));
+//
+//        //배열심화 - 2차원 배열
+//        //배열안에 또다른 배열이 있는 경우
+//        //int[][]arr = new int[2][3]; -- 선언후
+//        //int[][]arr2 = new int[2][]; -- 가변배열, 선언후
+//        //int[][]arr3 = {{1,2,3},{1,2,3}}; -- 리터럴
+//        //int[][]arr4 = {{10,20},{10,20,30},{10,20,30,40}}; -- 리터럴
+//
+//        //2차원 배열 할당
+//        int[][] arr = new int[2][3];
+//        //{{1,2,3},{4,5,6}};
+//        arr[0][0] = 1;
+//        arr[0][1] = 2;
+//        arr[0][2] = 3;
+//        arr[1][0] = 4;
+//        arr[1][1] = 5;
+//        arr[1][2] = 6;
+//        System.out.println(Arrays.deepToString(arr));
+//        //2차원 가변배열 선언 및 할당 앞자리만 지정해도 괜찮다.
+//        //앞에는 지정 안 하고 뒤에 지정하는 건 안된다.
+//        int[][] arr2 = new int[3][];
+//        arr2[0] = new int[1];
+//        arr2[1] = new int[2];
+//        arr2[2] = new int[3];
+//        arr2[0][0] = 10;
+//        arr2[1][0] = 20;
+//        arr2[2][0] = 30;
+//        System.out.println(Arrays.deepToString(arr2)); // 출력이 안됨 NPE
+//        //가변배열 리터럴 방식
+//        int[][] arr3 = {{10},{10,20},{10,20,30}};
+//        System.out.println(Arrays.deepToString(arr3)); // 출력이 안됨 NPE
+//
+//        //[3][4] 사이즈의 배열을 선언한 뒤
+//        //1,2,3~12까지의 숫자값 각 배열에 할당
+//
+//        int [][] arr4 = new int[3][4];
+//        int cnt = 0;
+//        for (int i =0; i <arr4.length; i++) {
+//            for(int j = 0; j <arr4[i].length; j++) { //arrt[i] 값 넣기
+//                cnt++;
+//                arr4[i][j] = cnt;
+//            }
+//        }
+//        System.out.println(Arrays.toString(arr4));
+//        System.out.println(Arrays.deepToString(arr4));
+//
+//        //가변배열만들기 : 전체 사이즈는 5로 ,
+//        // 각 배열마다 사이즈 1,2,3,4,5로 커지도록;
+//        // 각 사이즈별로 1은 10이 모두 들어가고 2는 20이 모두 들어가고, 3은 30이 모두 들어가도록
+//        int[][] arr5 = new int[5][];
+//
+//
+//        int cnt2 = 0;
+//        for(int i = 0; i < arr5.length; i++) {
+//            arr5[i] = new int[i+1];
+//            cnt2++;
+//            for (int j = 0; j <arr5[i].length; j++) {
+//                arr5[i][j] = cnt2* 10;
+//            }
+//        }
+//        System.out.println(Arrays.deepToString(arr5));
+//
 
-
-        //배열의 검색
-        int[] arr = {5,3,1,8,7};
-        int answer = 0;
-        for (int i =0; i < arr.length; i++) {
-            if(arr[i] == 1) {
-                answer = i;
-                break;
-            }
-        }
-
-        System.out.println(answer);
+        
+        
     }
 }
