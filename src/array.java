@@ -2,44 +2,112 @@ import java.util.*;
 
 public class array {
     public static void main(String[] args) {
-        int[][] data = {{1, 20300104, 100, 80}, {2, 20300804, 847, 37}, {3, 20300401, 10, 8}};
-        int[][] a = solution(data, "date",20300501, "remain");
+        String [] park = {"OSO","OOO","OXO","OOO"};
+        String [] routes = {"E 2","S 3","W 1"};
+
+        int[] answer = solution(park, routes);
+        System.out.println(Arrays.toString(answer));
     }
-    public static int[][] solution(int[][] data, String ext, int val_ext, String sort_by) {
-        int[][] answer = {};
-        //data 데이터
-        // ext 어떤 정보를 기준으로
-        // val_ext 뽑아낼 정보의 기준값
-        //sort_by 정렬
-        //code, 제조일, 최대 수량, 현재 남아있는 값
+    public static int[] solution(String[] park, String[] routes) {
 
-        String[] index = {"code","date","maximum","remain"};
-        int findColumn = 0;
-        int sortColumn = 0;
+        int[] answer = new int[2];
 
-        for (int i = 0; i < index.length; i++) {
-            if(index[i].equals(ext)) {
-                findColumn = i;
-            };
-            if(index[i].equals(sort_by)) {
-                sortColumn = i;
-            }
-        }
-
-        Date d = new Date(val_ext);
-
-        List<List<Integer>> a = new ArrayList<>();
-        for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j < data[i].length; j++) {
-                if (findColumn == j && val_ext > data[i][j]) {
-
+        String[][] p = new String[park.length][park.length];
+        for (int i = 0; i < park.length; i++) {
+            String a = park[i];
+            for (int j = 0; j<a.length(); j++) {
+                p[i][j] = Character.toString(a.charAt(j));
+                if(p[i][j].equals("S")) {
+                    answer[0] = i;
+                    answer[1] = j;
                 }
-                System.out.println(data[i][j]);
             }
+        }
+
+        int i = answer[0];
+        int j = answer[1];
+
+
+        for (int c = 0; c < routes.length; c++) {
+
 
         }
 
+//        String[] r = routes[c].split(" ");
+//        String nswe = r[0];
+//        int count = Integer.parseInt(r[1]);
+//
+//        //s 시작지점
+//        //o 이동 가능한 통로
+//        //x 장애물
+//        // n + i, s i-, w j-, e j+
+//
+//        if (nswe.equals("N")) {
+//            boolean check = true;
+//            int temp = i-count;
+//            if (temp < 0 ) {
+//                continue;
+//            }
+//            for (int d = i; d < count; d++) {
+//                if(p[i-d][j]==null||p[i-d][j].equals("X")) {
+//                    check = false;
+//                }
+//            }
+//
+//            if(check) {
+//                i = temp;
+//            }
+//        }
+//        else if (nswe.equals("S")) {
+//            int temp1 = i + count;
+//
+//            boolean check = true;
+//            if (temp1 < 0 ) {
+//                continue;
+//            }
+//
+//
+//            for (int d = i; d < count; d++) {
+//                if(p[i+d][j]==null||p[i+d][j].equals("X")) {
+//                    check = false;
+//                }
+//            }
+//
+//            if(check) {
+//                i = temp1;
+//            }
+//
+//        }
+//        else if (nswe.equals("W")) {
+//            int temp2 = j-count;
+//
+//            if (temp2 < 0 ) {
+//                continue;
+//            }
+//            if(p[i][temp2]!= null && p[i][temp2].equals("O")) {
+//
+//                j = temp2;
+//            }
+//
+//        }
+//        else {
+//            int temp3 = j + count;
+//
+//            if (temp3 < 0 ) {
+//                continue;
+//            }
+//            if (p[i][temp3] != null && p[i][temp3].equals("O")) {
+//
+//                j = temp3;
+//            }
+//
+//        }
+//
+//        System.out.println("nswe "+nswe+" i "+i+" j "+j);
 
+
+        answer[0] = i;
+        answer[1] = j;
 
         return answer;
     }
