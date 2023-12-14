@@ -1,7 +1,9 @@
+package Java;
+
 import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 
-public class C11StackQueue {
+public class C11StackQueueDeque {
     public static void main(String[] args) {
 //        // 자료형 Stack
 //        // LIFO 후입선출 가장 나중에 저장된 데이터가 먼저 나온다.
@@ -89,36 +91,78 @@ public class C11StackQueue {
 //        while (!myQue2.isEmpty()) {
 //            System.out.println("문서 출력 "+myQue2.poll());
 //        }
+//
+//        //길이의 제한이 있는 큐 : ArrayBlockingQueue
+//        Queue<String> myQue3 = new ArrayBlockingQueue<>(5);
+//        // add, offer 의 차이
+//        // add는 길이가 다 찼을때 illiger 어쩌구 에러
+//        // offer은 가능할때 true 불가능하면 false
+//
+//        String[] a = {"문서1","문서2","문서3","문서4","문서5","문서6","문서7"};
+//        for(int i = 0; i < a.length; i++) {
+//            //myQue3.add(a[i]);
+//            myQue3.offer(a[i]);
+//            System.out.println("문서대기열 추가 "+myQue3);
+//        }
+//        myQue3.clear();
+//
+//
+//        //우선순위큐(Java.priorityQueue)
+//        //데이터를 넣을때 부분 정렬되어 큐의 최 상단에는 가장 작은값이 위치
+//        //힙 자료구조를 통해 구현되어 있음
+//        //힙 자료구조 - 최 상단에는 가장 작은값
+//        Queue<Integer> pq = new PriorityQueue<>();
+//        pq.add(30);
+//        pq.add(20);
+//        pq.add(10);
+//        pq.add(40);
+//        pq.add(50);
+//        System.out.println(pq); //[10, 30, 20, 40, 50] 최 상단에 제일 작은값은 올라가 있다.heapifi
+//
+//        while (!pq.isEmpty()) {
+//            System.out.println(pq.poll());
+//        }
 
-        //길이의 제한이 있는 큐 : ArrayBlockingQueue
-        Queue<String> myQue3 = new ArrayBlockingQueue<>(5);
-        // add, offer 의 차이
-        // add는 길이가 다 찼을때 illiger 어쩌구 에러
-        // offer은 가능할때 true 불가능하면 false
 
-        String[] a = {"문서1","문서2","문서3","문서4","문서5","문서6","문서7"};
-        for(int i = 0; i < a.length; i++) {
-            //myQue3.add(a[i]);
-            myQue3.offer(a[i]);
-            System.out.println("문서대기열 추가 "+myQue3);
-        }
-        myQue3.clear();
+        //Queue <- Deque <- LinkedList
+        //Deque 양방향 큐, 양쪽 끝에서 모든 요소의 추가와 삭제가 일어난다.
+        //stack + queue 
+        //자바재단에서 추천
+        //선언방법
+        // ArrayDeque는 양방향에서 데이터를 삽입 / 제거할 수 있다.
+        // 성능 빠름.
+        Deque<Integer> myDeque = new ArrayDeque<>();
+        //addFirst() // 앞에 넣을래
+        //addLast() // 뒤에 넣을래
+        //peekFirst() // 제거 안하고 앞에 있는 거 볼래
+        //peekLast() // 제거 안하고 맨 뒤에 있는 거 볼래
+        //pollFirst() // 앞에거 지울래
+        //pollLast() // 뒤에거 지울래
 
 
-        //우선순위큐(priorityQueue)
-        //데이터를 넣을때 부분 정렬되어 큐의 최 상단에는 가장 작은값이 위치
-        //힙 자료구조를 통해 구현되어 있음
-        //힙 자료구조 - 최 상단에는 가장 작은값
-        Queue<Integer> pq = new PriorityQueue<>();
-        pq.add(30);
-        pq.add(20);
-        pq.add(10);
-        pq.add(40);
-        pq.add(50);
-        System.out.println(pq); //[10, 30, 20, 40, 50] 최 상단에 제일 작은값은 올라가 있다.heapifi
 
-        while (!pq.isEmpty()) {
-            System.out.println(pq.poll());
-        }
+//        queue
+//        add -- 크기제한있을때 -- addFirst
+//        offer -- ArrayBlockingQueue 를 통해 큐 생성시 add는 에러
+//        poll - 지우고 반환 -- pollLast
+//        peek - 반환만 함
+//
+//        set
+//        push
+//        pop - 지우고 반환
+//        peek - 반환만
+//        empty
+
+        myDeque.addFirst(10);
+        myDeque.addFirst(20);
+        System.out.println(myDeque); //20,10
+        myDeque.addLast(30);
+        System.out.println(myDeque); //20,10,30
+
+        System.out.println(myDeque.pollFirst());// 20
+        System.out.println(myDeque.pollLast());//30
+        System.out.println(myDeque); //10
+
+
     }
 }

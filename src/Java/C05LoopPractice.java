@@ -1,3 +1,5 @@
+package Java;
+
 public class C05LoopPractice {
     public static void main(String[] args) {
 //        //짝수의 합 1부터 20까지 계산하기

@@ -1,10 +1,12 @@
+package Java;
+
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class priorityQueue {
     public static void main(String[] args) {
-//        //우선순위큐(priorityQueue)
+//        //우선순위큐(Java.priorityQueue)
 //        //데이터를 넣을때 부분 정렬되어 큐의 최 상단에는 가장 작은값이 위치
 //        //힙 자료구조를 통해 구현되어 있음
 //        //힙 자료구조 - 최 상단에는 가장 작은값

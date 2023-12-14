@@ -1,3 +1,5 @@
+package Java;
+
 public class C1102StackFunction2 {
     public static void main(String[] args) {
         System.out.println("시작");

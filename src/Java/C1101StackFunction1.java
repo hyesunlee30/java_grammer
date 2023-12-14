@@ -1,3 +1,5 @@
+package Java;
+
 public class C1101StackFunction1 {
     public static void main(String[] args) {
 
