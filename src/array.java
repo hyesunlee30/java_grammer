@@ -27,16 +27,6 @@ public class array {
         int i = answer[0];
         int j = answer[1];
 
-
-        for (int c = 0; c < routes.length; c++) {
-
-
-        }
-
-//        String[] r = routes[c].split(" ");
-//        String nswe = r[0];
-//        int count = Integer.parseInt(r[1]);
-//
 //        //s 시작지점
 //        //o 이동 가능한 통로
 //        //x 장애물
@@ -64,13 +54,6 @@ public class array {
 //            boolean check = true;
 //            if (temp1 < 0 ) {
 //                continue;
-//            }
-//
-//
-//            for (int d = i; d < count; d++) {
-//                if(p[i+d][j]==null||p[i+d][j].equals("X")) {
-//                    check = false;
-//                }
 //            }
 //
 //            if(check) {
