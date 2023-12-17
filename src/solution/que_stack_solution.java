@@ -36,7 +36,7 @@ public class que_stack_solution {
         return answer;
     }
 
-    //연거 다음에 ) 가 있어 그럼 빼 ( ( ) -> (
+    //연거 다음에 ) 가 있어 그럼 빼야함 ( ( ) -> (
     //
     public static boolean solutionDeque(String s) {
         boolean answer = true;
