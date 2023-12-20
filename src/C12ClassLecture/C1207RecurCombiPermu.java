@@ -8,6 +8,7 @@ import java.util.List;
 
 public class C1207RecurCombiPermu {
 
+    static int answer = 0;
 
     public static void main(String[] args) {
 
@@ -42,34 +43,148 @@ public class C1207RecurCombiPermu {
 //        }
 //
 //        System.out.println(combinations);
+//
+//        //조합
+//        List<Integer> myList = new ArrayList<>(Arrays.asList(1,2,3,4));
+//        List<List<Integer>> combination_list = new ArrayList<>();
+//        List<Integer> temp = new ArrayList<>();
+//        combination(myList, combination_list,0, temp, 2);
+//        System.out.println(combination_list);
+//
+//        //순열 -- start 값이 필요 없음.
+//        List<Integer> myList = new ArrayList<>(Arrays.asList(1,2,3,4));
+//        List<List<Integer>> permutation_list = new ArrayList<>();
+//        List<Integer> temp = new ArrayList<>();
+//        boolean[] visited = new boolean[myList.size()];
+//        permutation(myList, permutation_list, temp, 2, visited);
+//        System.out.println(permutation_list);
+//
+//        List<Integer> myList = new ArrayList<>(Arrays.asList(1,2,3,4));
+//        List<List<Integer>> permutation_list = new ArrayList<>();
+//        List<Integer> temp = new ArrayList<>();
+//        boolean[] visited = new boolean[myList.size()];
+//        permutation6(myList, permutation_list, temp, 2, visited);
+//        System.out.println(permutation_list);
+//
+//        List<Integer> myList = new ArrayList<>(Arrays.asList(1,2,3,4));
+//        List<List<Integer>> permutation_list = new ArrayList<>();
+//        List<Integer> temp = new ArrayList<>();
+//        boolean[] visited = new boolean[myList.size()];
+//        permutation6All(myList, permutation_list, temp,visited);
+//        System.out.println(permutation_list);
 
-        //재귀
         List<Integer> myList = new ArrayList<>(Arrays.asList(1,2,3,4));
-        List<List<Integer>> combination_list = new ArrayList<>();
-        List<Integer> temp = new ArrayList<>();
-        combination(myList, combination_list,0, temp, 2);
-        System.out.println(combination_list);
+        List<List<Integer>> permutation_list = new ArrayList<>();
+
+        boolean[] visited = new boolean[myList.size()];
+        permutation6M(myList, visited, 0, 0);
+        System.out.println(answer);
 
     }
 
-    static void combination(List<Integer> myList, List<List<Integer>> combination_list, int start, List<Integer> temp, int m ) {
+//    static void combination(List<Integer> myList, List<List<Integer>> combination_list, int start, List<Integer> temp, int m ) {
+//
+//        if (temp.size() == m) {
+//            combination_list.add(new ArrayList<>(temp));
+//        } else {
+//            System.out.println("start "+start);
+//            for (int i = start; i < myList.size(); i++) {
+//                temp.add(myList.get(i));
+//                //combination(myList, combination_list,start+1, temp, m); //이렇게 하면 항상 1 그래서 i+1
+//                System.out.println(" i+1  "+(i+1));
+//                System.out.println(" start+1 "+(start+1));
+//                System.out.println("--------------");
+//                combination(myList, combination_list,i+1, temp, m);
+//                temp.remove(temp.size()-1); // 1번째값 remove
+//            }
+//        }
+//    }
+//    static void permutation(List<Integer> myList, List<List<Integer>> permutation_list, List<Integer> temp, int m, boolean[] visited ) {
+//
+//        if (temp.size() == m) {
+//            permutation_list.add(new ArrayList<>(temp));
+//        } else {
+//            for (int i =0; i < myList.size(); i++) {
+//
+//                if (!visited[i]) {
+//                    System.out.println(" myList.get(i) "+myList.get(i));
+//                    visited[i] = true;
+//                    temp.add(myList.get(i));
+//                    permutation(myList, permutation_list, temp, m, visited);
+//                    visited[i] = false;
+//                    temp.remove(myList.get(i));
+//                }
+//            }
+//        }
+//    }
+//    static void permutation6(List<Integer> myList, List<List<Integer>> permutation_list, List<Integer> temp, int m, boolean[] visited ) {
+//
+//        // 합계가 6 이상인 2개 순열만 add
+//        if (temp.size() == m ) {
+//            int sum = 0;
+//            for (int i = 0; i<temp.size(); i++) {
+//                sum += temp.get(i);
+//            }
+//            if (sum >= 6) {
+//                permutation_list.add(new ArrayList<>(temp));
+//            }
+//
+//        } else {
+//            for (int i =0; i < myList.size(); i++) {
+//                if (!visited[i]) {
+//                    System.out.println(" myList.get(i) "+myList.get(i));
+//                    visited[i] = true;
+//                    temp.add(myList.get(i));
+//                    permutation6(myList, permutation_list, temp, m, visited);
+//                    visited[i] = false;
+//                    temp.remove(myList.get(i));
+//                }
+//            }
+//        }
+//    }
+//
+//    static void permutation6All(List<Integer> myList, List<List<Integer>> permutation_list, List<Integer> temp, boolean[] visited ) {
+//
+//        // 합계가 6 이상인 모든 순열 add temp.size 변화시키거나. 길이제한
+//        int sum = 0;
+//        for (int i = 0; i<temp.size(); i++) {
+//            sum += temp.get(i);
+//        }
+//        if (sum >= 6) {
+//            permutation_list.add(new ArrayList<>(temp));
+//        }
+//        for (int i =0; i < myList.size(); i++) {
+//            if (!visited[i]) {
+//                System.out.println(" myList.get(i) "+myList.get(i));
+//                visited[i] = true;
+//                temp.add(myList.get(i));
+//                permutation6All(myList, permutation_list, temp,visited);
+//                visited[i] = false;
+//                temp.remove(myList.get(i));
+//            }
+//        }
+//
+//    }
+    static void permutation6M(List<Integer> myList,boolean[] visited, int temp, int count) {
 
-        if (temp.size() == m) {
-            List<Integer> temp2 = new ArrayList<>();
-            temp2.add(temp.get(0));
-            temp2.add(temp.get(1));
-            combination_list.add(temp2);
-        } else {
-            System.out.println("start "+start);
-            for (int i = start; i < myList.size(); i++) {
-                temp.add(myList.get(i));
-                //combination(myList, combination_list,start+1, temp, m); //이렇게 하면 항상 1 그래서 i+1
-                System.out.println(" i+1  "+(i+1));
-                System.out.println(" start+1 "+(start+1));
-                System.out.println("--------------");
-                combination(myList, combination_list,i+1, temp, m);
-                temp.remove(temp.size()-1); // 1번째값 remove
+        // 모든 순열에서 합계가 가장 큰 값 차기 max찾기 알고리즘 static 활용.
+        //4개중 3개 뽑는다.
+        if(count == 3) {
+            if(answer < temp) {
+                answer = temp;
+            }
+            return;
+        }
+        for (int i =0; i < myList.size(); i++) {
+            if (!visited[i]) {
+                visited[i] = true;
+                //temp += myList.get(i);
+                permutation6M(myList, visited, temp+myList.get(i),count+1);
+                //temp -= myList.get(i); // 백트래킹
+                visited[i] = false;
             }
         }
+
     }
+
 }
