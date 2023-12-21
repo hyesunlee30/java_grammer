@@ -25,16 +25,15 @@ public class practice1845 {
     }
 
     public static int solution(int[] nums) {
-        int answer = 0;
-
-        int max = nums.length / 2;
-        System.out.println(max);
+        int answer = nums.length / 2;
 
         Set<Integer> set = new HashSet<>();
         for (int n : nums) {
             set.add(n);
         }
-        answer = set.size()/2;
+        if(set.size() > answer) {
+            answer = set.size();
+        }
         return answer;
     }
 }
