@@ -139,7 +139,7 @@ class Student implements Comparable<Student> {
     @Override
     public String toString() {
         return "Student{" +
-                "이름은'" + name + '\'' +
+                " 이름은'" + name + '\'' +
                 ", 나이는=" + age +
                 '}';
     }
