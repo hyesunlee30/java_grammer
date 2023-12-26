@@ -32,7 +32,7 @@ public class C1505StreamAPI1 {
 //        int[] intArr2 = intStream.filter(a->a>20).toArray();
 //        System.out.println(Arrays.toString(intArr2));
 //        //스트링 참조변수 변환의 경우 제네릭의 타입소거 문제 발생
-//        //자바 버전의 호환ㄴ성을 위해 제네릭 타입을런타임시점에 제거하는 것ㅇ르 의
+//        //제네릭 타입 소거란 자바 버전의 호환ㄴ성을 위해 제네릭 타입을런타임시점에 제거하는 것ㅇ르 의
 //        String[] stArr3 = str1.filter(a->a.length()<=4).toArray(a->new String[a]);
 //        //method 참조방식
 //        String[] stArr2 = str1.filter(a->a.length()<4).toArray(String[]::new);
