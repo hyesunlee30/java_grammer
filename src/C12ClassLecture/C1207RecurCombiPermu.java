@@ -1,7 +1,5 @@
 package C12ClassLecture;
 
-import solution.Combination;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
